@@ -1,0 +1,105 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>404 Not Found</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000; /* Adjust the background color as needed */
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .logo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent; /* Change the overlay color to transparent */
+        }
+
+        .tcf-logo {
+            display: block;
+            margin: 0 auto;
+            width: 100px; /* Adjust the size as needed */
+        }
+
+        .page-state {
+            display: block;
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #ffffff; /* Adjust the text color as needed */
+        }
+
+        .pulse {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #snowflakes-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Allow interactions with underlying elements */
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="logo-overlay"></div>
+        <img class="tcf-logo" src="img/tcf-white.png" alt="Logo">
+        <span class="page-state pulse">404 Not Found</span>
+        <div id="snowflakes-container"></div>
+    </main>
+    <script>
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.width = snowflake.style.height = Math.random() * 10 + 5 + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.getElementById('snowflakes-container').appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, (parseFloat(snowflake.style.animationDuration) * 1000));
+        }
+
+        setInterval(createSnowflake, 200);
+    </script>
+</body>
