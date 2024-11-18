@@ -65,8 +65,8 @@
         .snowflake {
             position: absolute;
             top: -10px;
-            background: white;
-            border-radius: 50%;
+            font-size: 24px;
+            color: white;
             opacity: 0.8;
             pointer-events: none;
             animation: fall linear infinite;
@@ -90,8 +90,9 @@
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
             snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.width = snowflake.style.height = Math.random() * 10 + 5 + 'px';
+            snowflake.style.fontSize = Math.random() * 10 + 15 + 'px';
             snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
             document.getElementById('snowflakes-container').appendChild(snowflake);
 
