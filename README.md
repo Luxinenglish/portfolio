@@ -6,3 +6,4 @@ cd portfolio
 </code></pre>
 <pre><code>npm -i</code></pre>
 <p>Please don’t modify it here, and avoid using it for commercial purposes!</p>
+<p>thank's to dan@thecodingforge.com.au for the template</p>
